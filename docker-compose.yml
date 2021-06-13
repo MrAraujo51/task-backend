@@ -1,13 +1,18 @@
-version: '3.3'
+version: '3.7'
 services:
     nest-api:
+        container_name: nest-api 
         build:
             context: .
             dockerfile: Dockerfile
-        container_name: nest-api 
+            target: development
         restart: always
+        volumes:
+            - .:/usr/src/app
+            - /usr/src/app/node_modules
         ports:
             - 3000:3000
+        command: npm run start:dev
         depends_on:
             - postgres
         env_file:

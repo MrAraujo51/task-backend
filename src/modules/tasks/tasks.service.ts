@@ -18,7 +18,9 @@ export class TasksService {
   }
 
   findAll() {
-    return this._taskRepository.find();
+    return this._taskRepository.find({
+      where: { status: 'Open' },
+    });
   }
 
   async findOne(id: number) {
@@ -33,6 +35,7 @@ export class TasksService {
   }
 
   async complete(id: number) {
+    console.log(id);
     const toUpdate = await this._taskRepository.findOne(id);
     toUpdate.status = 'Complete';
     return this._taskRepository.save(toUpdate);

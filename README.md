@@ -24,15 +24,38 @@
 
 ## Description
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+This is a test app
 
 ## Installation
 
 ```bash
-$ npm install
+# generate all containers in app
+$ docker-compose up
+
+# initialize the DataBase
+$ docker cp ./init.sql postgres:/docker-entrypoint-initdb.d/init.sql
+$ docker exec -u postgres postgres psql test postgres -f docker-entrypoint-initdb.d/init.sql
 ```
 
-## Running the app
+# API DOC
+
+This is the documentation of all endpoints of the project
+
+## Open Endpoints
+
+Open endpoints require no Authentication.
+
+## Task Entity
+
+* [Create Task](doc/task/create.md) : `POST /tasks`
+* [Get Tasks](doc/task/get.md) : `GET /tasks`
+* [Get a Task](doc/task/pk/get.md) : `GET /tasks/:pk`
+* [Update Task](doc/task/pk/update.md) : `PATCH /tasks/:pk`
+* [Complete Task](doc/task/pk/complete.md) : `PUT /tasks/complete/:pk`
+* [Delete Task](doc/task/pk/delete.md) : `DELETE /tasks/:pk`
+
+
+<!-- ## Running the app
 
 ```bash
 # development
@@ -43,9 +66,9 @@ $ npm run start:dev
 
 # production mode
 $ npm run start:prod
-```
+``` -->
 
-## Test
+<!-- ## Test
 
 ```bash
 # unit tests
@@ -56,18 +79,16 @@ $ npm run test:e2e
 
 # test coverage
 $ npm run test:cov
-```
-
+``` -->
+<!-- 
 ## Support
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support). -->
 
 ## Stay in touch
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+- Author - [Manuel Araujo](https://www.linkedin.com/in/manuel-araujo-b5173913b/)
 
-## License
+<!-- ## License
 
-Nest is [MIT licensed](LICENSE).
+Nest is [MIT licensed](LICENSE). -->

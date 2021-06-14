@@ -19,7 +19,7 @@ CREATE TABLE "public"."tasks" (
 CREATE FUNCTION trigger_set_timestamp()
     RETURNS TRIGGER AS $$
     BEGIN
-    NEW.updated_at = NOW();
+    NEW.modification_date = NOW();
     RETURN NEW;
     END;
     $$ LANGUAGE 'plpgsql';

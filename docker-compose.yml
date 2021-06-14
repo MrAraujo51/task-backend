@@ -22,10 +22,13 @@ services:
         container_name: postgres
         image: postgres:alpine
         restart: always
-        ports:
-            - 5432:5432
         env_file:
             - .env
+        volumes:
+            - ./init.sh:/docker-entrypoint-initdb.d/init.sh
+        ports:
+            - 5432:5432
+
 
     adminer:
         image: adminer

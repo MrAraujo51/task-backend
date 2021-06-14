@@ -1,6 +1,6 @@
 import { Column, Entity, Index, PrimaryGeneratedColumn } from 'typeorm';
 
-@Index('taks', ['id'], { unique: true })
+@Index('tasks', ['id'], { unique: true })
 @Entity('tasks', { schema: 'public' })
 export class Task {
   @PrimaryGeneratedColumn('uuid')

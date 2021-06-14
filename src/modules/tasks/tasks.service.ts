@@ -10,12 +10,11 @@ export class TasksService {
   constructor(
     @InjectRepository(Task)
     private readonly _taskRepository: Repository<Task>,
-  ) {
-  }
+  ) {}
 
   async create(data: CreateTaskDto) {
     data.status = 'Open';
-    return  this._taskRepository.save(data);
+    return this._taskRepository.save(data);
   }
 
   findAll() {
@@ -27,20 +26,20 @@ export class TasksService {
   }
 
   async update(id: number, updateTaskDto: UpdateTaskDto) {
-    let toUpdate = await this._taskRepository.findOne(id);
-    let updated = Object.assign(toUpdate, updateTaskDto);
+    const toUpdate = await this._taskRepository.findOne(id);
+    const updated = Object.assign(toUpdate, updateTaskDto);
 
-    return  this._taskRepository.save(updated);
+    return this._taskRepository.save(updated);
   }
 
   async complete(id: number) {
-    let toUpdate = await this._taskRepository.findOne(id);
+    const toUpdate = await this._taskRepository.findOne(id);
     toUpdate.status = 'Complete';
     return this._taskRepository.save(toUpdate);
   }
 
   async remove(id: number) {
-    let toUpdate = await this._taskRepository.findOne(id);
+    const toUpdate = await this._taskRepository.findOne(id);
     toUpdate.status = 'Deleted';
     return this._taskRepository.save(toUpdate);
   }

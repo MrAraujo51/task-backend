@@ -19,8 +19,11 @@ services:
             - .env
 
     postgres:
+        container_name: postgres
         image: postgres:alpine
         restart: always
+        ports:
+            - 5432:5432
         env_file:
             - .env
 
